@@ -1,0 +1,81 @@
+$col1Width : 60px;
+$col2Width : 400px;
+$colOdWidth : 100px;
+$colDoWidth : 100px;
+$col5Width : 50px;
+
+$table-cell-padding : 0;
+
+$lineHeight : 37px;
+
+table{
+  border-collapse: separate;
+  border-spacing: 0px;
+}
+
+.tableRaf1{
+  width: $col1Width + $col2Width + $colOdWidth + $colDoWidth+ $col5Width;
+}
+
+.weekend{
+  background-color: rgba(240,240,240, 0.4);
+}
+
+.row1Sticky{
+  position: sticky;
+  background-color: rgb(250, 250, 250);
+  top:79px;
+}
+
+.row2Sticky{
+  position: sticky;
+  background-color: rgb(250, 250, 250);
+  top:80px+27px;
+}
+
+tbody{
+  top:180px;
+}  
+
+table {  
+  border: 1px solid #ddd;
+  border-top: 3px solid #ddd;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+td, th {  
+    border: 1px solid #ddd;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  
+.row1 {
+  // background-color: red;
+  width: 3*$col1Width ; 
+}
+.row1-1{
+  // background-color: blue;
+  width: $col1Width ; 
+} 
+
+.row1-2{
+  // background-color: yellow;
+  width: $col2Width ; 
+} 
+
+.row2-1{
+  // background-color: green;
+    width: $colOdWidth ; 
+}    
+    
+.row2-2{
+  // background-color: palevioletred;
+    width: $colDoWidth;
+}
+
+.row1-5{
+  // background-color: lightskyblue;
+    width: $col5Width;
+}
+

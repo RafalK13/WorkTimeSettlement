@@ -1,0 +1,36 @@
+
+header {
+    color: #828282;
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+
+    padding: 10px 20px 10px 10px;
+    padding-bottom: 20px;   
+    height: 80px;
+    z-index: 130;
+    background-color: white;
+}
+
+.r-header{
+    display: flex;
+    align-items:flex-start;
+    justify-content:flex-end;
+}
+
+.r-logo{
+    flex-grow: 1;
+    display: flex;
+    align-content:flex-start;
+}
+
+.r-logo img{
+    height: 40px;
+}
+
+.r-header-opis{   
+    border-bottom: 1px solid #828282;
+    padding-bottom: 7px;
+    padding-top: 3px;
+}

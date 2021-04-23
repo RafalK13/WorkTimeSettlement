@@ -1,0 +1,25 @@
+
+@import "~bootstrap/scss/bootstrap";
+@import "DayComponent";
+$mainMargin : 169px;
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', Tahoma, sans-serif;
+ 
+  color: #0076ad;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+main {
+    margin: 0 auto;
+    margin-top: 78px;
+    margin-left: $mainMargin;
+    margin-right: $mainMargin;
+    margin-bottom: 80px;
+  }
