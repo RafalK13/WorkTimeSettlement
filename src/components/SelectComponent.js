@@ -9,7 +9,6 @@ const OptComponent = (props) => {
     const [idSel, setIdSel] = useState(id);
 
     function changeElement(event) {
-
         setColorSel(tab[event.target.value].color);
         setIdSel(event.target.value);
     }

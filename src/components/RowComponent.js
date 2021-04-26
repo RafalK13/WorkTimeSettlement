@@ -1,74 +1,44 @@
 import { Fragment } from 'react';
 import SelectComponent from './SelectComponent'
-// import '../styles/DayComponent.scss'
 import '../styles/RowComponent.scss'
 
-
 const RowComponent = (props) => {
+
     const { lp, tab } = props;
-    const p1 = <Fragment key={lp + "-"}>
-        <td>{lp}</td>
-        <td>
-            {
-                tab.map((index) => {
-                    return <SelectComponent id={index.rodzaj} />
-                })
-            }
-        </td>
-        <td>
-            <div>
-                {
-                    tab.map((index) => {
-                        return <input className='time' />
-                    })
-                }
-        :
-            {
-                    tab.map((index) => {
-                        return <input className='time' />
-                    })
-                }
-            </div>
 
-        </td>
-        <td>
-            <div>
-                {
-                    tab.map((index) => {
-                        return <input className='time' />
-                    })
-                }
-                {
-                    tab.map((index) => {
-                        return <input className='time' />
-                    })
-                }
-            </div>
-        </td>
-        <td></td>
-    </Fragment>
+    const nrRows = tab.length;
 
+    const getFirstCol = (index) => {
 
+        if (nrRows > 1 && index === 0)
+            return (<td rowSpan={nrRows}>{lp}</td>)
 
-    // const p2 = <tr  >
-    //     <td><OptComponent tab={tabIn} /></td>
-    //     <td></td>
-    //     <td></td>
-    //     <td></td>
+        if (nrRows > 1 && index > 0)
+            return null;
 
-    // </tr >
+        return (<td >{lp}</td>)
+    }
 
-    //const tab = [p1]
+    const row = tab.map((index, i) => {
+        return (
+            <tr key={index.id + "-" + i} >
+                {getFirstCol(i)}
+
+                <td className='rodzaj'>
+                    {<SelectComponent id={index.rodzaj} />}
+                </td>
+                <td className='Od'> <input className='time' /></td>
+                <td className='Do'> <input className='time' /></td>
+                <td> <input className='time' /></td>
+            </tr>
+        )
+    })
 
     return (
         <>
-
-
-            {p1}
-
-
-
-
+            <Fragment key={lp + "-"}>
+                {row}
+            </Fragment>
         </>
     );
 }

@@ -1,4 +1,9 @@
 // @use './SelectComponent.scss'
+$col1Width : 60px;
+$col2Width : 400px;
+$colOdWidth : 100px;
+$colDoWidth : 100px;
+$col5Width : 50px;
 
 .time {
     width:50px;
@@ -8,4 +13,8 @@
     background-color:rgba(240,240,240,0.7);
     padding:2px;
 margin:5px
+}
+
+.rowW {
+    width: $col2Width + $colOdWidth + $colDoWidth + $col5Width;
 }

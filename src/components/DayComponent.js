@@ -120,13 +120,10 @@ function sortDaneBaza(o1, o2) {
 
     return 0;
 }
-// function filterTable(day, item) {
-//     return day === item;
-// }
-// function daneZBazy.filter(filterTable.bind(this, dayToCompare));
 
 const DayComponent = (props) => {
 
+    let dane = [];
     const days = daysTab(props.dataRozl);
     const rows = days.map((item) => {
 
@@ -143,16 +140,15 @@ const DayComponent = (props) => {
         }
         let lp = item.day.getDate();
 
-        const dane = daneZBazySort.filter((daneItem) => {
+        dane = daneZBazySort.filter((daneItem) => {
             return getDataRaf(item.day).getTime() === getDataRaf(daneItem.data).getTime()
         })
         return (
-            <tr key={item.day.getDate()} className="">
-                <RowComponent lp={lp} tab={dane} />
-            </tr>
+            <RowComponent lp={lp} tab={dane} />
         )
     })
 
+    console.log(daneZBazySort);
     return (
         <>
             <table>
