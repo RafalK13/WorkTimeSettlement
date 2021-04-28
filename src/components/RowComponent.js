@@ -1,8 +1,81 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import SelectComponent from './SelectComponent'
 import '../styles/RowComponent.scss'
 
 const RowComponent = (props) => {
+
+    const [timeHOd, setTimeHOd] = useState('')
+    const [timeMOd, setTimeMOd] = useState('')
+    const [timeHDo, setTimeHDo] = useState('')
+    const [timeMDo, setTimeMDo] = useState('')
+    const [classOd, setClassOd] = useState('Od');
+    const [classDo, setClassDo] = useState('Do');
+
+    useEffect(() => {
+        let error = false;
+        if (isNaN(timeHOd))
+            error = true;
+
+        if (timeHOd.length === 1) {
+
+            setTimeHOd('13');
+            // setTimeHOd((prev) => {
+
+            //     const result = prev + 'Dupa';
+            //     console.log(result);
+
+            //     return { result }
+            // })
+
+        }
+
+        if (timeHOd.length > 2 || timeMOd.length > 2)
+            error = true;
+
+        if (timeHOd < 0 || timeHOd > 23)
+            error = true;
+
+        if (timeHOd < 0 || timeMOd > 60)
+            error = true;
+
+
+        error === false ? setClassOd('Od') : setClassOd('Od Error');
+    }, [timeHOd, timeMOd]
+    );
+
+
+    const onChange = ({ target: { value } }) => {
+        // setTimeHOd(value);
+        // console.log(value);
+        // console.log(value);
+        // const n = e.target.value;
+
+        // if (n.length > 2)
+        //     setClassOd("Od Error")
+        // else
+        //     setClassOd("Od")
+        // console.log(e.target.className);
+    }
+
+    // const onChangeH = ({ target: { value } }) => {
+    //     const n = value;
+    //     if (n <= 0 || n > 23)
+    //         setClassOd("Od timeHError")
+    //     else
+    //         setClassOd("Od")
+
+    //     setTimeH(n);
+    // }
+
+    // const onChangeM = ({ target: { value } }) => {
+    //     const n = value;
+    //     if (n <= 0 || n > 59)
+    //         setClassOd("Od timeHError")
+    //     else
+    //         setClassOd("Od")
+
+    //     setTimeM(n);
+    // }
 
     const { lp, tab } = props;
 
@@ -23,13 +96,46 @@ const RowComponent = (props) => {
         return (
             <tr key={index.id + "-" + i} >
                 {getFirstCol(i)}
-
                 <td className='rodzaj'>
                     {<SelectComponent id={index.rodzaj} />}
                 </td>
-                <td className='Od'> <input className='time' /></td>
-                <td className='Do'> <input className='time' /></td>
-                <td> <input className='time' /></td>
+                <td >
+                    <div className={classOd}>
+                        <input
+                            name='godzinyOd'
+                            className='time'
+                            onChange={e => setTimeHOd(e.target.value)}
+                        />
+                        <div className='timeBreak'>:</div>
+                        <input
+                            name='minutyOd'
+                            className='time minuty'
+                            onChange={e => setTimeMOd(e.target.value)}
+                        />
+                    </div>
+                </td>
+                <td >
+                    <div className={classDo}>
+                        <input
+                            name='godzinyOd'
+                            className='time'
+                            onChange={e => setTimeHDo(e.target.value)}
+                        />
+                        <div className='timeBreak'>:</div>
+                        <input
+                            name='minutyOd'
+                            className='time minuty'
+                            onChange={e => setTimeMDo(e.target.value)}
+                        />
+                    </div>
+                </td>
+                <td>
+                    {/* <button className='btnAdd'>+</button>
+                    <button className='btnAdd'>-</button> */}
+                </td>
+                {/* <td></td>
+                <td></td>
+                <td></td> */}
             </tr>
         )
     })

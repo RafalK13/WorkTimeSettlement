@@ -1,20 +1,43 @@
-// @use './SelectComponent.scss'
-$col1Width : 60px;
-$col2Width : 400px;
-$colOdWidth : 100px;
-$colDoWidth : 100px;
-$col5Width : 50px;
+.Od, .Do{
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 .time {
     width:50px;
-    // margin-left: 20px;
-    text-align: center;
+    text-align:right;
     border: 0;
     background-color:rgba(240,240,240,0.7);
-    padding:2px;
-margin:5px
+    font-size:17px;
 }
 
-.rowW {
-    width: $col2Width + $colOdWidth + $colDoWidth + $col5Width;
+.minuty{
+    text-align:left;
 }
+
+.time:focus {
+    outline: none;
+}
+
+.timeBreak{
+    color: black;
+    background-color:rgba(240,240,240,0.7);
+    justify-content:end;
+    text-align: center;
+     line-height: 23px;
+}
+
+.btnAdd {
+    border : 1px solid rgba(40, 40, 40, 0.3);
+    background-color: white;
+}
+
+.Error{
+    outline: 2px solid red;
+}
+
+
